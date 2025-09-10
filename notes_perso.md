@@ -54,3 +54,7 @@ composer install
 
 -user:root
 -pw :
+
+## lancer le server SF
+
+-   symfony server:start
