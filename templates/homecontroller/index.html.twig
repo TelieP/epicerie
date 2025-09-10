@@ -1,0 +1,69 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    Accueil
+{% endblock %}
+
+{% block body %}
+
+    {# LE BLOC DE GÉNÈSE ET VALEURS : DANS UN CONTAINER POUR CENTRER LE TEXTE #}
+    <section class="py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto text-center">
+                    <h2>
+                        Genèse et valeurs
+                    </h2>
+                    <hr class="divider my-4" />
+                    <p class="lead">
+                        Notre épicerie est née de la passion pour les produits de qualité et la volonté de soutenir les producteurs locaux. Nous croyons en une alimentation saine et transparente, où chaque produit a une histoire.
+                    </p>
+                    <p>
+                        Nous sélectionnons rigoureusement nos partenaires et nous nous engageons à vous offrir des produits frais, de saison et respectueux de l'environnement. C'est plus qu'une simple épicerie, c'est un lien direct avec nos agriculteurs et artisans.
+                    </p>
+                    <p>
+                        Rejoignez-nous dans notre mission de redécouvrir les saveurs authentiques et de construire un futur plus durable, un panier à la fois.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    {# LES PRODUITS EN VEDETTE : DANS UN CONTAINER #}
+    <section class="page-section">
+        <div class="container">
+            <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">
+                Produits en vedette
+            </h2>
+            <hr class="divider-dark my-4" />
+            <div class="row row-cols-1 row-cols-md-3 g-4">
+                {% for product in products %}
+                    <div class="col">
+                        <div class="card h-100">
+                            <img src="{{ asset('uploads/products/' ~ product.image) }}" class="card-img-top" alt="{{ product.nom }}">
+                                <div class="card-body">
+                                    <h5 class="card-title">
+                                        {{ product.nom }}
+                                    </h5>
+                                    <p class="card-text">
+                                        {{ product.description }}
+                                    </p>
+                                </div>
+                                <div class="card-footer">
+                                    <span class="fw-bold">
+                                        {{ product.prix }}
+                                        €
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    {% else %}
+                        <p class="text-center">
+                            Aucun produit n'est disponible pour le moment.
+                        </p>
+                    {% endfor %}
+                </div>
+            </div>
+        </section>
+    {% endblock %}
+    

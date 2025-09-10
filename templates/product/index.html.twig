@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    Tous les produits
+{% endblock %}
+
+{% block body %}
+    <div class="container mt-5">
+        <h1>
+            Tous les produits
+        </h1>
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+            {% for product in products %}
+                <div class="col">
+                    <div class="card h-100">
+                        <img src="{{ asset('uploads/products/' ~ product.image) }}" class="card-img-top" alt="{{ product.nom }}">
+                            <div class="card-body">
+                                <h5 class="card-title">
+                                    {{ product.nom }}
+                                </h5>
+                                <p class="card-text">
+                                    {{ product.description }}
+                                </p>
+                                <span class="fw-bold">
+                                    {{ product.prix }}
+                                    €
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                {% else %}
+                    <p>
+                        Aucun produit n'est disponible pour le moment.
+                    </p>
+                {% endfor %}
+            </div>
+        </div>
+    {% endblock %}
+    
