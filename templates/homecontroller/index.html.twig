@@ -5,65 +5,90 @@
 {% endblock %}
 
 {% block body %}
-
-    {# LE BLOC DE GÉNÈSE ET VALEURS : DANS UN CONTAINER POUR CENTRER LE TEXTE #}
-    <section class="py-5">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8 mx-auto text-center">
-                    <h2>
-                        Genèse et valeurs
-                    </h2>
-                    <hr class="divider my-4" />
-                    <p class="lead">
-                        Notre épicerie est née de la passion pour les produits de qualité et la volonté de soutenir les producteurs locaux. Nous croyons en une alimentation saine et transparente, où chaque produit a une histoire.
-                    </p>
-                    <p>
-                        Nous sélectionnons rigoureusement nos partenaires et nous nous engageons à vous offrir des produits frais, de saison et respectueux de l'environnement. C'est plus qu'une simple épicerie, c'est un lien direct avec nos agriculteurs et artisans.
-                    </p>
-                    <p>
-                        Rejoignez-nous dans notre mission de redécouvrir les saveurs authentiques et de construire un futur plus durable, un panier à la fois.
-                    </p>
-                </div>
-            </div>
+    <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
         </div>
-    </section>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="{{ asset('images/slide 1.jpg') }}" class="d-block w-100" alt="Premier slide"></div>
+                <div class="carousel-item">
+                    <img src="{{ asset('images/slide 2.jpg') }}" class="d-block w-100" alt="Deuxième slide"></div>
+                    <div class="carousel-item">
+                        <img src="{{ asset('images/slide 3.jpg') }}" class="d-block w-100" alt="Troisième slide"></div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">
+                            Précédent
+                        </span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">
+                            Suivant
+                        </span>
+                    </button>
+                </div>
 
-    {# LES PRODUITS EN VEDETTE : DANS UN CONTAINER #}
-    <section class="page-section">
-        <div class="container">
-            <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">
-                Produits en vedette
-            </h2>
-            <hr class="divider-dark my-4" />
-            <div class="row row-cols-1 row-cols-md-3 g-4">
-                {% for product in products %}
-                    <div class="col">
-                        <div class="card h-100">
-                            <img src="{{ asset('uploads/products/' ~ product.image) }}" class="card-img-top" alt="{{ product.nom }}">
-                                <div class="card-body">
-                                    <h5 class="card-title">
-                                        {{ product.nom }}
-                                    </h5>
-                                    <p class="card-text">
-                                        {{ product.description }}
-                                    </p>
-                                </div>
-                                <div class="card-footer">
-                                    <span class="fw-bold">
-                                        {{ product.prix }}
-                                        €
-                                    </span>
-                                </div>
+                <section class="py-5">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-8 mx-auto text-center">
+                                <h2>
+                                    Genèse et valeurs
+                                </h2>
+                                <hr class="divider my-4" />
+                                <p class="lead">
+                                    Notre épicerie est née de la passion pour les produits de qualité et la volonté de soutenir les producteurs locaux. Nous croyons en une alimentation saine et transparente, où chaque produit a une histoire.
+                                </p>
+                                <p>
+                                    Nous sélectionnons rigoureusement nos partenaires et nous nous engageons à vous offrir des produits frais, de saison et respectueux de l'environnement. C'est plus qu'une simple épicerie, c'est un lien direct avec nos agriculteurs et artisans.
+                                </p>
+                                <p>
+                                    Rejoignez-nous dans notre mission de redécouvrir les saveurs authentiques et de construire un futur plus durable, un panier à la fois.
+                                </p>
                             </div>
                         </div>
-                    {% else %}
-                        <p class="text-center">
-                            Aucun produit n'est disponible pour le moment.
-                        </p>
-                    {% endfor %}
-                </div>
-            </div>
-        </section>
-    {% endblock %}
-    
+                    </div>
+                </section>
+
+                <section class="page-section">
+                    <div class="container">
+                        <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">
+                            Produits en vedette
+                        </h2>
+                        <hr class="divider-dark my-4" />
+                        <div class="row row-cols-1 row-cols-md-3 g-4">
+                            {% for product in products %}
+                                <div class="col">
+                                    <div class="card h-100">
+                                        <img src="{{ asset('uploads/products/' ~ product.image) }}" class="card-img-top" alt="{{ product.nom }}">
+                                            <div class="card-body">
+                                                <h5 class="card-title">
+                                                    {{ product.nom }}
+                                                </h5>
+                                                <p class="card-text">
+                                                    {{ product.description }}
+                                                </p>
+                                            </div>
+                                            <div class="card-footer">
+                                                <span class="fw-bold">
+                                                    {{ product.prix }}
+                                                    €
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                {% else %}
+                                    <p class="text-center">
+                                        Aucun produit n'est disponible pour le moment.
+                                    </p>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </section>
+                {% endblock %}
+                

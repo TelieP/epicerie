@@ -1,0 +1,7 @@
+/* public/css/custom.css */
+
+.carousel-item img {
+    height: 450px; /* Ajustez cette hauteur selon vos préférences */
+    object-fit: cover; /* Permet de recadrer l'image pour qu'elle couvre la zone */
+    width: 100%; /* S'assure que l'image prend toute la largeur de son conteneur */
+}
